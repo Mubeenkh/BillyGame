@@ -5,4 +5,4 @@ HOW TO START THIS PROJECT:
 AUTHORS:
 USER INSTRUCTIONS:
 
-I had to recreate on of my games
+I had to recreate one of my games
