@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class name="Billy" extends="Actor" extends-java="Actor" enable="true" strideversion="1">
+    <javadoc xml:space="preserve">Write a description of class Billy here.
+@author (your name) @version (a version number or a date)</javadoc>
+    <imports>
+        <import target="greenfoot.*" enable="true"/>
+    </imports>
+    <implements/>
+    <fields/>
+    <constructors/>
+    <methods>
+        <comment xml:space="preserve">(World, Actor, GreenfootImage, Greenfoot and MouseInfo)</comment>
+        <method access="public" type="void" type-java="void" name="act" enable="true">
+            <javadoc xml:space="preserve">Act - do whatever the Billy wants to do. This method is called whenever the 'Act' or 'Run' button gets pressed in the environment.</javadoc>
+            <params/>
+            <throws/>
+            <body>
+                <comment xml:space="preserve">Add your action code here.</comment>
+                <call expression="checkKeypress()" expression-java="checkKeypress()" enable="true"/>
+                <call expression="eatingBread()" expression-java="eatingBread()" enable="true"/>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="checkKeypress" enable="true">
+            <javadoc xml:space="preserve">//controls of Billy</javadoc>
+            <params/>
+            <throws/>
+            <body>
+                <comment xml:space="preserve">movements of Billy the Duck</comment>
+                <if condition="Greenfoot.isKeyDown(&quot;up&quot;)" condition-java="Greenfoot.isKeyDown(&quot;up&quot;)" enable="true">
+                    <ifStatements>
+                        <call expression="move(6)" expression-java="move(6)" enable="true"/>
+                    </ifStatements>
+                </if>
+                <if condition="Greenfoot.isKeyDown(&quot;down&quot;)" condition-java="Greenfoot.isKeyDown(&quot;down&quot;)" enable="true">
+                    <ifStatements>
+                        <call expression="move(-6)" expression-java="move(-6)" enable="true"/>
+                    </ifStatements>
+                </if>
+                <if condition="Greenfoot.isKeyDown(&quot;right&quot;)" condition-java="Greenfoot.isKeyDown(&quot;right&quot;)" enable="true">
+                    <ifStatements>
+                        <call expression="turn(6)" expression-java="turn(6)" enable="true"/>
+                    </ifStatements>
+                </if>
+                <if condition="Greenfoot.isKeyDown(&quot;left&quot;)" condition-java="Greenfoot.isKeyDown(&quot;left&quot;)" enable="true">
+                    <ifStatements>
+                        <call expression="turn(-6)" expression-java="turn(-6)" enable="true"/>
+                    </ifStatements>
+                </if>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="eatingBread" enable="true">
+            <javadoc xml:space="preserve">//what happens when Billy touches the bread</javadoc>
+            <params/>
+            <throws/>
+            <body>
+                <comment xml:space="preserve">eating bread</comment>
+                <if condition="isTouching(Bread.class)" condition-java="isTouching(Bread.class)" enable="true">
+                    <ifStatements>
+                        <call expression="removeTouching(Bread.class)" expression-java="removeTouching(Bread.class)" enable="true"/>
+                    </ifStatements>
+                </if>
+                <comment xml:space="preserve">when counter reaches 0 the game ends</comment>
+                <if condition="counter==0" condition-java="counter == 0" enable="false">
+                    <ifStatements>
+                        <call expression="getWorld().showText(&quot;GOODJOB BILLY!!!&quot;,300,200)" expression-java="getWorld().showText(&quot;GOODJOB BILLY!!!&quot;, 300, 200)" enable="false"/>
+                        <call expression="Greenfoot.playSound(&quot;Crunch.wav&quot;)" expression-java="Greenfoot.playSound(&quot;Crunch.wav&quot;)" enable="false"/>
+                        <call expression="Greenfoot.stop()" expression-java="Greenfoot.stop()" enable="false"/>
+                    </ifStatements>
+                </if>
+            </body>
+        </method>
+    </methods>
+</class>
